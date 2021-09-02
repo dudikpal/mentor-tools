@@ -1,0 +1,29 @@
+GET http://localhost:8080/api/syllabuses
+Accept: application/json
+
+###
+GET http://localhost:8080/api/syllabuses?prefix=sta
+Accept: application/json
+
+###
+POST http://localhost:8080/api/syllabuses
+Content-Type: application/json
+
+{
+  "name": "sylla 1"
+}
+
+###
+GET http://localhost:8080/api/syllabuses/1
+Accept: application/json
+
+###
+PUT http://localhost:8080/api/syllabuses/1
+Content-Type: application/json
+
+{
+  "name": "sylla 1 edited"
+}
+###
+DELETE http://localhost:8080/api/syllabuses/1
+Content-Type: application/json
