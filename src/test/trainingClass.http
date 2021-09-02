@@ -1,0 +1,38 @@
+GET http://localhost:8080/api/trainingclasses
+Accept: application/json
+
+###
+GET http://localhost:8080/api/trainingclasses?prefix=tt
+Accept: application/json
+
+###
+POST http://localhost:8080/api/trainingclasses
+Content-Type: application/json
+
+{
+  "name": "tc 1",
+"interval": {
+  "startingDate": "2020-01-01",
+  "endingDate": "2020-02-01"
+}
+
+}
+
+###
+GET http://localhost:8080/api/trainingclasses/1
+Accept: application/json
+
+###
+PUT http://localhost:8080/api/trainingclasses/1
+Content-Type: application/json
+
+{
+  "name": "tc 1 edited",
+  "interval": {
+    "startingDate": "2021-01-01",
+    "endingDate": "2021-02-01"
+  }
+}
+###
+DELETE http://localhost:8080/api/trainingclasses/1
+Content-Type: application/json

@@ -1,15 +1,7 @@
 package mentortools.syllabus;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import mentortools.lesson.CreateLessonCommand;
-import mentortools.lesson.LessonDTO;
-import mentortools.lesson.LessonService;
-import mentortools.lesson.UpdateLessonCommand;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
