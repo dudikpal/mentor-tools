@@ -1,0 +1,31 @@
+GET http://localhost:8080/api/lessons
+Accept: application/json
+
+###
+GET http://localhost:8080/api/lessons?prefix=les
+Accept: application/json
+
+###
+POST http://localhost:8080/api/lessons
+Content-Type: application/json
+
+{
+  "title": "leson 1",
+  "url": "http://www.ichigo.jp"
+}
+
+###
+GET http://localhost:8080/api/lessons/1
+Accept: application/json
+
+###
+PUT http://localhost:8080/api/lessons/1
+Content-Type: application/json
+
+{
+  "title": "lesson 1 edited",
+  "url": "https://www.ichigo.jp"
+}
+###
+DELETE http://localhost:8080/api/lessons/1
+Content-Type: application/json

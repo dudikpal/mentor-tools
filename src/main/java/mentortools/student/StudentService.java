@@ -14,9 +14,9 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class StudentService {
 
-    StudentRepository studentRepository;
+    private StudentRepository studentRepository;
 
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     public List<StudentDTO> getStudents(Optional<String> prefix) {
         return studentRepository.findAll().stream()
