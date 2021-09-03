@@ -1,0 +1,45 @@
+POST http://localhost:8080/api/trainingclasses
+Content-Type: application/json
+
+{
+  "name": "tc 1",
+  "interval": {
+    "startingDate": "2020-01-01",
+    "endingDate": "2020-02-01"
+  }
+
+}
+###
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{
+  "name": "student12",
+  "email": "email1",
+  "gitHubName": "git/name1"
+}
+###
+POST http://localhost:8080/api/trainingclasses/1/registrations
+Content-Type: application/json
+
+{
+  "studentId": "1"
+}
+
+###
+GET http://localhost:8080/api/trainingclasses/1/registrations
+Accept: application/json
+
+###
+PUT http://localhost:8080/api/modules/1
+Content-Type: application/json
+
+{
+  "title": "module 1 edited",
+  "url": "https://www.ichigo.jp"
+}
+###
+GET http://localhost:8080/api/students/1/registrations
+Accept: application/json
+
+###

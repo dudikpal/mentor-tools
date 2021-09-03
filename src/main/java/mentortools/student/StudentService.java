@@ -37,7 +37,7 @@ public class StudentService {
         return modelMapper.map(student, StudentDTO.class);
     }
 
-    private Student getStudentById(long id) {
+    public Student getStudentById(long id) {
         return studentRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Cannot find student with id: " + id));
     }

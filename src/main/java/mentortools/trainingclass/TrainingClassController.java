@@ -1,15 +1,14 @@
 package mentortools.trainingclass;
 
 import lombok.AllArgsConstructor;
-import mentortools.syllabus.CreateSyllabusCommand;
-import mentortools.syllabus.SyllabusDTO;
-import mentortools.syllabus.SyllabusService;
-import mentortools.syllabus.UpdateSyllabusCommand;
+import mentortools.student.RegisterStudentCommand;
+import mentortools.student.StudentDTO;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -47,6 +46,8 @@ public class TrainingClassController {
     public void deleteTrainingClass(@PathVariable long id) {
         trainingClassService.deleteTrainingClass(id);
     }
+
+
 
 
 }

@@ -1,21 +1,25 @@
 package mentortools.trainingclass;
 
 import lombok.AllArgsConstructor;
-import mentortools.syllabus.Syllabus;
+import mentortools.student.*;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.SecondaryTable;
-import java.time.LocalDate;
+import javax.transaction.Transactional;
+import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class TrainingClassService {
 
     private TrainingClassRepository trainingClassRepository;
+
+    private StudentRepository studentRepository;
 
     private ModelMapper modelMapper;
 
@@ -37,9 +41,9 @@ public class TrainingClassService {
         return modelMapper.map(getTrainingClassById(id), TrainingClassDTO.class);
     }
 
-    private TrainingClass getTrainingClassById(long id) {
+    public TrainingClass getTrainingClassById(long id) {
         return trainingClassRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Cannot find student with id: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Cannot find trainingclass with id: " + id));
     }
 
     public TrainingClassDTO updateTrainingClass(long id, UpdateTrainingClassCommand command) {
@@ -53,4 +57,6 @@ public class TrainingClassService {
     public void deleteTrainingClass(long id) {
         trainingClassRepository.deleteById(id);
     }
+
+
 }
