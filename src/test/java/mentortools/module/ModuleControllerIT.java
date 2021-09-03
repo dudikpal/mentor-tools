@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Sql(statements = "delete from modules")
-class ModuleControllerTest {
+class ModuleControllerIT {
 
     ModuleDTO module1;
 
@@ -85,6 +85,17 @@ class ModuleControllerTest {
 
     @Test
     void deleteModuleById() {
-        template.delete("/api/modules" + module1Id);
+        template.delete("/api/modules/" + module1Id);
+
+        List<ModuleDTO> modules = template.exchange(
+                "/api/modules",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<ModuleDTO>>() {
+                }
+        ).getBody();
+
+        assertThat(modules)
+                .hasSize(0);
     }
 }
