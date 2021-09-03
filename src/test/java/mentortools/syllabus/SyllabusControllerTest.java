@@ -46,20 +46,15 @@ class SyllabusControllerTest {
     @Test
     void createSyllabus() {
         SyllabusDTO syllabus2 = createSyllabusDTO("syllabus 2");
-        SyllabusDTO savedSyllabus = template.getForObject(
-                SYLLABUS_URL + "/" + syllabus2.getId(),
-                SyllabusDTO.class
-        );
+        SyllabusDTO savedSyllabus = getForSyllabus(syllabus2.getId());
 
         assertEquals("syllabus 2", savedSyllabus.getName());
     }
 
+
     @Test
     void findSyllabusById() {
-        SyllabusDTO findedSyllabus = template.getForObject(
-                SYLLABUS_URL + "/" + syllabus1Id,
-                SyllabusDTO.class
-        );
+        SyllabusDTO findedSyllabus = getForSyllabus(syllabus1Id);
 
         assertEquals("syllabus 1", findedSyllabus.getName());
     }
@@ -71,10 +66,7 @@ class SyllabusControllerTest {
                 new UpdateSyllabusCommand("new syllabusname 1"),
                 SyllabusDTO.class
         );
-        SyllabusDTO updatedSyllabus = template.getForObject(
-                SYLLABUS_URL + "/" + syllabus1Id,
-                SyllabusDTO.class
-        );
+        SyllabusDTO updatedSyllabus = getForSyllabus(syllabus1Id);
 
         assertEquals("new syllabusname 1", updatedSyllabus.getName());
     }
@@ -106,6 +98,14 @@ class SyllabusControllerTest {
         return template.postForObject(
                 SYLLABUS_URL,
                 new CreateSyllabusCommand(name),
+                SyllabusDTO.class
+        );
+    }
+
+
+    private SyllabusDTO getForSyllabus(long id) {
+        return template.getForObject(
+                SYLLABUS_URL + "/" + id,
                 SyllabusDTO.class
         );
     }
