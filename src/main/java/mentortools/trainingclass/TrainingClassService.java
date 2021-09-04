@@ -46,6 +46,7 @@ public class TrainingClassService {
                 .orElseThrow(() -> new IllegalArgumentException("Cannot find trainingclass with id: " + id));
     }
 
+    @Transactional
     public TrainingClassDTO updateTrainingClass(long id, UpdateTrainingClassCommand command) {
         TrainingClass tc = getTrainingClassById(id);
         tc.setName(command.getName());
