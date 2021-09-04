@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Sql(statements = "delete from syllabuses")
-class SyllabusControllerTest {
+class SyllabusControllerIT {
 
     public static final String SYLLABUS_URL = "/api/syllabuses";
     @Autowired
